@@ -22,11 +22,16 @@ l4, = plt.plot(range(len(y4)), y4, marker='o', markersize=4, color='yellow', lin
 l5, = plt.plot(range(len(y5)), y5, marker='o', markersize=4, color='cornflowerblue', linewidth=0.75)
 
 plt.xticks(range(len(x_list)), x_list)
-plt.xlabel("频率(Hz)")
+plt.xlabel("频率/Hz")
 
 plt.ylabel("20lg(Vo/Vi)/dB")
 
 plt.title('滤波器幅频特性')
 plt.legend(handles=[l1, l2, l3, l4, l5], labels=['2V', '5V', '10V', '15V', '20V'], prop=font)
+
+# 添加水平虚线
+plt.axhline(y=-3, ls=":", c="red")
+# 添加垂直虚线
+plt.axvline(x=3, ls=":", c="red")
 
 plt.show()
