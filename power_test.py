@@ -1,4 +1,4 @@
-#功耗测试
+# 功耗测试
 import matplotlib
 import matplotlib.pyplot as plt
 
@@ -15,9 +15,12 @@ y7 = [3.691, 3.687, 3.687, 3.687, 3.698, 3.709, 3.728, 3.739, 3.761, 3.791]
 y8 = [3.681, 3.681, 3.681, 3.681, 3.703, 3.714, 3.714, 3.755, 3.777, 3.807]
 y9 = [3.695, 3.696, 3.704, 3.704, 3.720, 3.742, 3.753, 3.805, 3.827, 3.915]
 y10 = [3.687, 3.680, 3.687, 3.702, 3.721, 3.743, 3.773, 3.818, 3.851, 3.970]
+
 # 定义中文格式
-font = {'family': 'MicroSoft Yahei', 'size': 10}
+font = {'family': 'MicroSoft Yahei', 'size': 24}
 matplotlib.rc('font', **font)
+
+plt.figure(figsize=(14.4, 10.8))
 
 l1, = plt.plot(range(len(y1)), y1, marker='o', markersize=3, color='blue', linewidth=1.2)
 l2, = plt.plot(range(len(y2)), y2, marker='o', markersize=3, color='orange', linewidth=1.2)
@@ -30,13 +33,17 @@ l8, = plt.plot(range(len(y8)), y8, marker='o', markersize=3, color='black', line
 l9, = plt.plot(range(len(y9)), y9, marker='o', markersize=3, color='pink', linewidth=1.2)
 l10, = plt.plot(range(len(y10)), y10, marker='o', markersize=3, color='purple', linewidth=1.2)
 
+label_font = {'family': 'MicroSoft Yahei', 'size': 26}
 plt.xticks(range(len(x_list)), x_list)
-plt.xlabel("电流/(mA)")
+plt.xlabel("电流/(mA)", font=label_font)
 
-plt.ylabel("功耗/W")
-#plt.ylim(3.500, 4.000)
+plt.ylabel("功耗/W", font=label_font)
+# plt.ylim(3.500, 4.000)
 
 plt.title('不同负载功耗测试')
-plt.legend(handles=[l1, l2, l3, l4, l5, l6, l7, l8, l9, l10], labels=['3KΩ', '4.3KΩ', '5.1KΩ', '6.2KΩ', '7.5KΩ', '8.2KΩ', '9.1KΩ', '10KΩ', '15KΩ', '18KΩ'], prop=font)
+legend_font = {'family': 'MicroSoft Yahei', 'size': 16}
+plt.legend(handles=[l1, l2, l3, l4, l5, l6, l7, l8, l9, l10],
+           labels=['3KΩ', '4.3KΩ', '5.1KΩ', '6.2KΩ', '7.5KΩ', '8.2KΩ', '9.1KΩ', '10KΩ', '15KΩ', '18KΩ'],
+           prop=label_font)
 
 plt.show()
